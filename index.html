@@ -251,15 +251,15 @@ html{scroll-behavior:smooth}
           </div>
           <div class="setup">
             <div class="setupBlock"><div class="setupIcon"><img src="./Images/TFB Logo.png" alt="TFB"></div><div><div class="fieldLabel">Select Group</div><input class="groupInput" id="groupInput" placeholder="Type group name"></div></div>
-            <div><div class="fieldLabel">Select Tier</div><div class="tiers" id="tierTabs"><button class="tierTab active" data-tier="test">Test<small>2 Spins</small></button><button class="tierTab" data-tier="t1">Tier 1<small>4 Spins</small></button><button class="tierTab" data-tier="t1.5">Tier 1.5<small>4 Spins</small></button><button class="tierTab" data-tier="t2">Tier 2<small>4 Spins</small></button></div></div>
+            <div><div class="fieldLabel">Select Tier</div><div class="tiers" id="tierTabs"><button class="tierTab active" data-tier="test">Test<small>2 Rewards</small></button><button class="tierTab" data-tier="t1">Tier 1<small>4 Rewards</small></button><button class="tierTab" data-tier="t1.5">Tier 1.5<small>5 Rewards</small></button><button class="tierTab" data-tier="t2">Tier 2<small>8 Rewards</small></button></div></div>
           </div>
           <div class="sectionHead"><h2>Possible Drops <span id="poolCount">0 items</span></h2><div class="filters" id="filterChips"><button class="chip active" data-filter="all">All</button><button class="chip" data-filter="common">Common</button><button class="chip" data-filter="uncommon">Uncommon</button><button class="chip" data-filter="rare">Rare</button><button class="chip" data-filter="epic">Epic</button><button class="chip" data-filter="legendary">Legendary</button></div></div>
           <div class="rarityPeek" id="rarityPeek"><div class="rarityPeekInner"><div class="rarityPeekLabel"><span id="rarityPeekTitle">All Visible Items</span><span id="rarityPeekCount">0 matches</span></div><div class="rarityPeekList" id="rarityPeekList"></div></div></div>
           <div class="items" id="items"></div>
         </section>
         <aside class="rightPane">
-          <div class="panel"><div class="panelTitle"><h3>Spin Type</h3><span class="online">Active</span></div><div class="spinTypes" id="spinTypes"><button class="spinType active" data-type="gun"><b>Gun Spins</b><span>Only weapon drops from your tier pool</span></button><button class="spinType" data-type="drug"><b>Drug Spins</b><span>Small / Large drug drops based on tier</span></button><button class="spinType" data-type="bullet"><b>Bullet Spins</b><span>Bullet rewards based on tier access</span></button><button class="spinType" data-type="accessory"><b>Accessory Spin</b><span>Attachments and utility rewards from your tier pool</span></button></div></div>
-          <div class="panel"><div class="panelTitle"><h3>Tier Rules</h3><span class="tiny" id="ruleTier">TEST</span></div><div class="rules"><div class="rule"><b>Test</b><span>Common + Uncommon only</span></div><div class="rule"><b>Tier 1</b><span>Common + Uncommon + Rare</span></div><div class="rule"><b>Tier 1.5</b><span>Epic and lower</span></div><div class="rule"><b>Tier 2</b><span>All drops</span></div></div></div>
+          <div class="panel"><div class="panelTitle"><h3>Spin Type</h3><span class="online">Active</span></div><div class="spinTypes" id="spinTypes"><button class="spinType active" data-type="gun"><b>Gun Spins</b><span>Official illegal faction weapon pool for your tier</span></button><button class="spinType" data-type="bullet"><b>Bullet Spins</b><span>Ammo rewards based on tier access</span></button><button class="spinType" data-type="accessory"><b>Accessory Spin</b><span>Attachments and utility rewards from your tier pool</span></button></div></div>
+          <div class="panel"><div class="panelTitle"><h3>Tier Rules</h3><span class="tiny" id="ruleTier">TEST</span></div><div class="rules"><div class="rule"><b>Test</b><span>Official test pool • 2 rewards</span></div><div class="rule"><b>Tier 1</b><span>Official Tier 1 pool • 4 rewards</span></div><div class="rule"><b>Tier 1.5</b><span>Tier 1.5 pool • 5 rewards</span></div><div class="rule"><b>Tier 2</b><span>Tier 2 pool + all switches • 8 rewards</span></div></div></div>
           <div class="panel" id="appearancePanel"><div class="panelTitle"><h3>Appearance</h3><span class="tiny" id="themeLabel">DARK</span></div><div class="appearance"><button class="themeBtn" data-theme="light">Light</button><button class="themeBtn" data-theme="dim">Dim</button><button class="themeBtn active" data-theme="dark">Dark</button></div></div>
         </aside>
       </div>
@@ -411,35 +411,33 @@ html{scroll-behavior:smooth}
 <div class="modal" id="resultModal"><div class="resultBox"><div class="modalTop"><h2>Drops Won</h2><button class="close" id="closeResult">Close</button></div><div class="resultGrid" id="results"></div><button class="collect" id="collectBtn">COLLECT ALL + SAVE HISTORY</button></div></div>
 <script>
 const ITEMS=[
-{name:"G17C Gen 4",rarity:"common",category:"regular pistols",type:"gun",image:"./Images/WEAPON_G17CG4.png",weight:70},
-{name:"G19 Gen 5 RS",rarity:"common",category:"regular pistols",type:"gun",image:"./Images/WEAPON_G19G5RS.png",weight:68},
-{name:"G19X Coyote",rarity:"uncommon",category:"regular pistols",type:"gun",image:"./Images/WEAPON_G19XCOYOTE.png",weight:56},
-{name:"G45 Camo",rarity:"uncommon",category:"regular pistols",type:"gun",image:"./Images/WEAPON_G45CAMO.png",weight:52},
-{name:"FN 502 Tactical",rarity:"rare",category:"regular pistols",type:"gun",image:"./Images/WEAPON_FN502T.png",weight:44},
-{name:"Ruger 57",rarity:"rare",category:"stronger pistols",type:"gun",image:"./Images/WEAPON_R57B.png",weight:38},
-{name:"PSA FN57",rarity:"rare",category:"stronger pistols",type:"gun",image:"./Images/WEAPON_PSAFN57.png",weight:36},
-{name:"P320 Compact",rarity:"rare",category:"stronger pistols",type:"gun",image:"./Images/WEAPON_P320CS.png",weight:34},
-{name:"SD40 Tactical",rarity:"rare",category:"stronger pistols",type:"gun",image:"./Images/WEAPON_SD40T.png",weight:32},
-{name:"G45 AV",rarity:"epic",category:"upgraded pistols",type:"gun",image:"./Images/WEAPON_G45AV.png",weight:24},
-{name:"G45 Gen 5 RS",rarity:"epic",category:"upgraded pistols",type:"gun",image:"./Images/WEAPON_G45G5RS.png",weight:22},
-{name:"PSA Dagger G20",rarity:"epic",category:"upgraded pistols",type:"gun",image:"./Images/WEAPON_PSADG20.png",weight:20},
-{name:"PSA P80 19",rarity:"epic",category:"upgraded pistols",type:"gun",image:"./Images/WEAPON_PSAP8019.png",weight:18},
-{name:"KG43X",rarity:"epic",category:"upgraded pistols",type:"gun",image:"./Images/WEAPON_KG43X.png",weight:17},
-{name:"CG45 SS",rarity:"epic",category:"semi-auto rifles",type:"gun",image:"./Images/WEAPON_CG45SS.png",weight:16},
-{name:"BDB",rarity:"epic",category:"semi-auto rifles",type:"gun",image:"./Images/WEAPON_BDB.png",weight:15},
-{name:"MPA DC",rarity:"epic",category:"semi-auto rifles",type:"gun",image:"./Images/WEAPON_MPADC.png",weight:14},
-{name:"PSA Half N Half",rarity:"epic",category:"semi-auto rifles",type:"gun",image:"./Images/WEAPON_PSADHALFNHALF.png",weight:13},
-{name:"CMP92",rarity:"epic",category:"fully automatic",type:"gun",image:"./Images/WEAPON_CMP92.png",weight:12},
-{name:"G19 Gen 5 MOS Switch",rarity:"legendary",category:"fully automatic",type:"gun",image:"./Images/WEAPON_G19G5MOSSWITCH.png",weight:9},
-{name:"G23 Gen 5 Switch",rarity:"legendary",category:"fully automatic",type:"gun",image:"./Images/WEAPON_G23G5SWITCHG.png",weight:8},
-{name:"G24 Switch",rarity:"legendary",category:"fully automatic",type:"gun",image:"./Images/WEAPON_G24SWITCHI.png",weight:7},
-{name:"Micro Draco Custom",rarity:"legendary",category:"fully automatic",type:"gun",image:"./Images/WEAPON_MICRODRACCUSTOM.png",weight:6},
-{name:"MP20 FRT",rarity:"legendary",category:"strongest full-auto",type:"gun",image:"./Images/WEAPON_MP20FRT.png",weight:5},
-{name:"Fully ARP Custom",rarity:"legendary",category:"strongest full-auto",type:"gun",image:"./Images/WEAPON_FULLYARPCUSTOM.png",weight:4},
-{name:"Custom 7.5 ARP",rarity:"legendary",category:"strongest full-auto",type:"gun",image:"./Images/WEAPON_CUSTOM75ARP.png",weight:4},
-{name:"4 Inch ARP Custom",rarity:"legendary",category:"strongest full-auto",type:"gun",image:"./Images/WEAPON_4INCHARPCUS.png",weight:4},
-{name:"4 Inch ARP Blue",rarity:"epic",category:"fully automatic",type:"gun",image:"./Images/WEAPON_4INCHARPBLUE.png",weight:10},
-{name:"7.62 Mini AR",rarity:"legendary",category:"strongest full-auto",type:"gun",image:"./Images/WEAPON_762MINIAR.png",weight:3},
+{name:"T850",rarity:"common",category:"official test drop",type:"gun",image:"./Images/WEAPON_T850.png",weight:18},
+{name:"G2C",rarity:"common",category:"official test drop",type:"gun",image:"./Images/WEAPON_TG2C.png",weight:17},
+{name:"P226",rarity:"common",category:"official test drop",type:"gun",image:"./Images/WEAPON_P226.png",weight:16},
+{name:"P80",rarity:"uncommon",category:"official test drop",type:"gun",image:"./Images/WEAPON_P80.png",weight:14},
+{name:"P320 SIG",rarity:"uncommon",category:"official test drop",type:"gun",image:"./Images/WEAPON_P320SIG.png",weight:13},
+{name:"G17G3 P80",rarity:"uncommon",category:"official test drop",type:"gun",image:"./Images/WEAPON_G17G3P80.png",weight:12},
+{name:"FN502 Tactical",rarity:"rare",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_FN502T.png",weight:11},
+{name:"G45 AV",rarity:"rare",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_G45AV.png",weight:10},
+{name:"KG43X",rarity:"rare",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_KG43X.png",weight:10},
+{name:"G45 CAMO",rarity:"uncommon",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_G45CAMO.png",weight:12},
+{name:"G19X COYOTE",rarity:"uncommon",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_G19XCOYOTE.png",weight:11},
+{name:"M&P 9 2.0",rarity:"rare",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_MP920.png",weight:9},
+{name:"SD40 TACTICAL",rarity:"rare",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_SD40T.png",weight:9},
+{name:"G17 BINARY",rarity:"rare",category:"tier 1 pistols",type:"gun",image:"./Images/WEAPON_G17BINARY.png",weight:8},
+{name:"PSAD Half N Half",rarity:"epic",category:"tier 1.5 pistols",type:"gun",image:"./Images/WEAPON_PSADHALFNHALF.png",weight:8},
+{name:"PSA FN57",rarity:"epic",category:"tier 1.5 pistols",type:"gun",image:"./Images/WEAPON_PSAFN57.png",weight:7},
+{name:"G20 CGFLEX",rarity:"epic",category:"tier 1.5 pistols",type:"gun",image:"./Images/WEAPON_G20CGFLEX.png",weight:7},
+{name:"MP20FRT",rarity:"legendary",category:"tier 2 rifle",type:"gun",image:"./Images/WEAPON_MP20FRT.png",weight:6},
+{name:"G19 Gen 5 MOS Switch",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G19G5MOSSWITCH.png",weight:5},
+{name:"G23 Gen 5 Switch",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G23G5SWITCHG.png",weight:5},
+{name:"G24 Switch",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G24SWITCHI.png",weight:5},
+{name:"G22 Gen 4 Switch Blue",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G22G4SB.png",weight:4},
+{name:"G22 Gen 4 Switch Green",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G22G4SG.png",weight:4},
+{name:"G22 Gen 4 Switch Pink",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G22G4SP.png",weight:4},
+{name:"G22 Gen 4 Switch Red",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G22G4SR.png",weight:4},
+{name:"G31 Gen 5 Gold Switch",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_G31G5GS.png",weight:4},
+{name:"PSA P80 G19 Switch",rarity:"legendary",category:"tier 2 switches",type:"gun",image:"./Images/WEAPON_PSAP80G19SWITCH.png",weight:4},
 {name:"9mm Ammo",rarity:"common",category:"basic pistol ammo",type:"bullet",image:"./Images/ammo-9.png",weight:72},
 {name:".22 Ammo",rarity:"common",category:"basic pistol ammo",type:"bullet",image:"./Images/ammo-22.png",weight:70},
 {name:".40 Ammo",rarity:"uncommon",category:"better pistol ammo",type:"bullet",image:"./Images/ammo-40.png",weight:58},
@@ -494,14 +492,19 @@ const ITEMS=[
 {name:"Purple Pistol Grip",rarity:"rare",category:"rare weapon accessories",type:"accessory",image:"./Images/at_purplepistolgrip.png",weight:24},
 {name:"Red Pistol Grip",rarity:"rare",category:"rare weapon accessories",type:"accessory",image:"./Images/at_redpistolgrip.png",weight:24},
 {name:"Rubber Bands",rarity:"common",category:"utility items",type:"accessory",image:"./Images/at_rubberbands.png",weight:60},
-{name:"Tan Pistol Grip",rarity:"common",category:"basic attachments",type:"accessory",image:"./Images/at_tanpistolgrip.png",weight:50},
-{name:"Small Drug Drop",rarity:"common",category:"drug drops",type:"drug",emoji:"▣",weight:72},
-{name:"Medium Drug Drop",rarity:"uncommon",category:"drug drops",type:"drug",emoji:"▤",weight:44},
-{name:"Large Drug Drop",rarity:"rare",category:"drug drops",type:"drug",emoji:"▰",weight:22},
-{name:"Heavy Drug Drop",rarity:"epic",category:"drug drops",type:"drug",emoji:"⬢",weight:12},
-{name:"Legendary Drug Drop",rarity:"legendary",category:"drug drops",type:"drug",emoji:"✦",weight:5}
+{name:"Tan Pistol Grip",rarity:"common",category:"basic attachments",type:"accessory",image:"./Images/at_tanpistolgrip.png",weight:50}
 ];
-const TIERS={test:{label:"TEST",rewards:2,rarities:["common","uncommon"]},t1:{label:"TIER 1",rewards:4,rarities:["common","uncommon","rare"]},"t1.5":{label:"TIER 1.5",rewards:4,rarities:["common","uncommon","rare","epic"]},t2:{label:"TIER 2",rewards:4,rarities:["common","uncommon","rare","epic","legendary"]}};
+const TEST_GUNS=["T850","G2C","P226","P80","P320 SIG","G17G3 P80"];
+const TIER1_GUNS=[...TEST_GUNS,"FN502 Tactical","G45 AV","KG43X","G45 CAMO","G19X COYOTE","M&P 9 2.0","SD40 TACTICAL","G17 BINARY"];
+const TIER15_GUNS=["P320 SIG","G17G3 P80","FN502 Tactical","G45 AV","KG43X","G45 CAMO","G19X COYOTE","M&P 9 2.0","SD40 TACTICAL","G17 BINARY","PSAD Half N Half","PSA FN57","G20 CGFLEX"];
+const SWITCH_GUNS=["G19 Gen 5 MOS Switch","G23 Gen 5 Switch","G24 Switch","G22 Gen 4 Switch Blue","G22 Gen 4 Switch Green","G22 Gen 4 Switch Pink","G22 Gen 4 Switch Red","G31 Gen 5 Gold Switch","PSA P80 G19 Switch"];
+const WEAPON_POOLS={
+  test:new Set(TEST_GUNS),
+  t1:new Set(TIER1_GUNS),
+  "t1.5":new Set(TIER15_GUNS),
+  t2:new Set([...new Set([...TIER15_GUNS,"MP20FRT",...SWITCH_GUNS])])
+};
+const TIERS={test:{label:"TEST",rewards:2,rarities:["common","uncommon"]},t1:{label:"TIER 1",rewards:4,rarities:["common","uncommon","rare"]},"t1.5":{label:"TIER 1.5",rewards:5,rarities:["common","uncommon","rare","epic"]},t2:{label:"TIER 2",rewards:8,rarities:["common","uncommon","rare","epic","legendary"]}};
 const MUSIC_TRACKS=[
   {name:"Keke - Headtapp Gz",mp3:"./mp3/Music1.mp3",mp4:"./mp4/Music1.mp4"},
   {name:"Strictly 4 The Fans - Rennytherapper",mp3:"./mp3/Music2.mp3",mp4:"./mp4/Music2.mp4"},
@@ -511,7 +514,16 @@ const MUSIC_TRACKS=[
 const SPEEDS={fast:3000,normal:4650,cinematic:5800};
 const STORAGE_KEYS={history:"illegalFactionSpinHistory",legacyHistory:"phillySpinHistory",settings:"illegalFactionSpinSettings",legacySettings:"phillySpinSettings",theme:"illegalFactionTheme",legacyTheme:"phillyTheme",track:"illegalFactionTrackIndex"};
 const ITEM_H=138, WIN_IDX=62;
-let history=JSON.parse(localStorage.getItem(STORAGE_KEYS.history)||localStorage.getItem(STORAGE_KEYS.legacyHistory)||"[]");
+const ITEM_KEYS=new Set(ITEMS.map(item=>`${item.type}:${item.name}`));
+function sanitizeHistoryRows(rows){
+  if(!Array.isArray(rows))return [];
+  return rows.filter(entry=>ITEM_KEYS.has(`${entry.spinType}:${entry.item}`));
+}
+const rawHistory=JSON.parse(localStorage.getItem(STORAGE_KEYS.history)||localStorage.getItem(STORAGE_KEYS.legacyHistory)||"[]");
+let history=sanitizeHistoryRows(rawHistory);
+if(history.length!==rawHistory.length){
+  localStorage.setItem(STORAGE_KEYS.history,JSON.stringify(history));
+}
 const itemsEl=document.getElementById('items'), poolCount=document.getElementById('poolCount'), track=document.getElementById('track');
 const elements={
   groupInput:document.getElementById('groupInput'),
@@ -553,7 +565,10 @@ const state={
   trackLoadToken:0
 };
 function escapeHtml(value){return String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]))}
-function allowed(t,item){return TIERS[t].rarities.includes(item.rarity)}
+function allowed(t,item){
+  if(item.type==='gun')return WEAPON_POOLS[t].has(item.name);
+  return TIERS[t].rarities.includes(item.rarity);
+}
 function getVisiblePool(ignoreFilter=false){
   return ITEMS.filter(item=>allowed(state.tier,item)&&item.type===state.spinType&&(ignoreFilter||state.filter==='all'||item.rarity===state.filter));
 }
@@ -778,11 +793,13 @@ window.selectGroup=(g)=>{selectedGroup=g;renderHistory()};
 let viewSwitching=false;
 function setView(v){
   if(viewSwitching)return;
-  const next=document.getElementById(v+'View');
+  const targetView=v==='spins'?'spin':v;
+  const next=document.getElementById(targetView+'View');
+  if(!next)return;
   const current=document.querySelector('.view.active');
   if(current===next)return;
   viewSwitching=true;
-  document.querySelectorAll('.navBtn[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));
+  document.querySelectorAll('.navBtn[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===targetView));
   if(current){
     current.classList.add('fadeOut');
     setTimeout(()=>{
